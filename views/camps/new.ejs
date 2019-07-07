@@ -1,0 +1,28 @@
+<% include ../partials/header %>
+<div class="text-center mt-auto">
+	<h1 class="">Create New Campground</h1>
+
+	<form action="/index" method="POST" m-auto class="w-25 mx-auto mt-4">
+		<div class="m-2 ">
+			<input type="text" name="name" placeholder="Campground Name" class="text-center w-100">
+		</div>
+		<div class="m-2 ">
+			<input type="text" name="price" class="text-center w-100">
+		</div>
+		<div class="m-2">
+			<input type="text" name="image" placeholder="URL" class="text-center w-100">
+		</div>
+		<div class="m-2">
+			<input type="text" name="description" placeholder="Description" class="text-center w-100">
+		</div>
+		<div class="m-2">
+			<button class="text-center w-100">Submit</button>
+		</div>
+		
+	</form>
+</div>
+
+
+<a href="/index" class="d-flex mx-auto w-25 text-center">Go back</a>
+
+<% include ../partials/footer %>
