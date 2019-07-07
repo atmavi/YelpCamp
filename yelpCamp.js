@@ -19,13 +19,12 @@ var commentRoute= require('./routes/comments'),
 var app= express();
 mongoose.connect('mongodb+srv://admin:P@ssword@cluster0-58hdk.mongodb.net/test?retryWrites=true&w=majority', {
 	useNewUrlParser: true,
-	useCreateIndex: true,
-}.then(()=>{
+	useCreateIndex: true
+}).then(()=>{
 	console.log("Connected to DB!");
-	}).catch(err=>{
+}).catch(err=>{
 	console.log("ERROR:"+ err.message);
-})
-);
+});
 
 app.use(express.static(__dirname+"/public"));
 app.use(bodyParser.urlencoded({extended:true}));
@@ -59,7 +58,7 @@ app.use("/index",campRoute);
 app.use("/index/:id/comments",commentRoute);
 app.use("/", indexRoute);
 
-app.listen(3000, function(){
+app.listen(process.env.PORT||3000, function(){
 	console.log("Yelp Camp app has started!");
 	
 });
