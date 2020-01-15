@@ -11,13 +11,14 @@ var express					= require('express'),
 	passportLocalMongoose	= require('passport-local-mongoose'),
 	methodOverride			= require('method-override'),
 	flash					= require('connect-flash');
+	require('dotenv').config();
 
 var commentRoute= require('./routes/comments'),
 	campRoute= require('./routes/campgrounds'),
 	indexRoute= require('./routes/index');
 
 var app= express();
-mongoose.connect('mongodb+srv://admin:P@ssword@cluster0-58hdk.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect(process.env.DB_URL, {
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(()=>{
@@ -36,7 +37,7 @@ app.use(flash());
 
 //CONFIGURE PASSPORT
 app.use(require('express-session')({
-	secret:"Noknok the Destroyer, Mingming the Pacifista",
+	secret:process.env.PASSPORT_SECRET,
 	resave:false,
 	saveUninitialized:false
 }));
