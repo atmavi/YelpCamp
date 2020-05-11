@@ -1,17 +1,4 @@
 * {
-	margin:0;
-	padding: 0;
-}
-
-
-.thumbmail{
-	width:100%;
-}
-
-.addNewComment{
-	margin-right:1.5%;
-}
-
-.fDelete{
-	display: inline;
-}
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
