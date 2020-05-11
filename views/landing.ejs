@@ -9,16 +9,6 @@
     <body>
     
     <div class="container">
-        <% if(error && error.length > 0){ %>
-            <div class="alert alert-danger" role="alert">
-                <%= error %>
-            </div>
-        <% } %>
-        <% if(success && success.length > 0){ %>
-            <div class="alert alert-success" role="alert">
-                <%= success %>
-            </div>
-        <% } %>
     </div>
     
     <div id="landing-header" class= "container">
@@ -32,9 +22,6 @@
                 <a href="/index" class="btn btn-lg btn-success">View All Campgrounds</a>
             </div>
         </div>
-
- 		<!-- <h1>Welcome to YelpCamp!</h1>
-		<a href="/index" class="btn btn-lg btn-success">View All Campgrounds</a> -->
     </div>
     
     <ul class="slideshow">
@@ -46,5 +33,3 @@
     </ul>
 
 <% include partials/footer %>
-
-<% include partials/footer.ejs %>
