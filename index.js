@@ -1,8 +1,6 @@
 var express = require("express"),
   request = require("request"),
   bodyParser = require("body-parser"),
-  // Camp = require("./models/camp"),
-  // Comment = require("./models/comment"),
   User = require("./models/users"),
   // seedDB = require("./seeds"),
   mongoose = require("mongoose"),
