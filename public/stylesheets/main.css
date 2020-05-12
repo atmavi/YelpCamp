@@ -2,3 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
+
+body {
+  background-color: #f6fcf6; }
+
+.nav-main {
+  background-color: #6af19e !important; }
