@@ -1,4 +1,4 @@
-var express = require('express'),
+const express = require('express'),
 	router = express.Router(),
 	Camp = require('../models/camp'),
 	middleware = require('../middleware');
@@ -23,18 +23,18 @@ router.get("/new", middleware.isLoggedIn, function (req, res) {
 //CREATE
 router.post("/", middleware.isLoggedIn, function (req, res) {
 	let { name, price, image, description } = req.body;
-	// var name = req.body.name;
-	// var price = req.body.price;
-	// var image = req.body.image;
-	// var description = req.body.description;
+	// let name = req.body.name;
+	// let price = req.body.price;
+	// let image = req.body.image;
+	// let description = req.body.description;
 
 	let { _id, username } = req.user;
-	var author = {
+	let author = {
 		id: _id,
 		username: username
 	};
 
-	var newCamp = { name: name, price: price, img: image, desc: description, author: author };
+	let newCamp = { name: name, price: price, img: image, desc: description, author: author };
 	Camp.create(newCamp, function (err, camp) {
 		if (err) {
 			console.log(err);
@@ -47,7 +47,7 @@ router.post("/", middleware.isLoggedIn, function (req, res) {
 
 //SHOW
 router.get("/:id", function (req, res) {
-	var id = req.params.id;
+	let id = req.params.id;
 	Camp.findById(id).populate("comments").exec(function (err, foundCamp) {
 		if (err) {
 			console.log(err);
