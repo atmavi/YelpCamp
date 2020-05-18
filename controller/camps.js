@@ -1,18 +1,21 @@
-// import Camp from '../models/camp';
-const Camp = require('../controller/camps')
+const Camp = require('../models/camp');
 
-export function getAllCamps(req, res) {
+
+exports.getAllCamps = function (req, res) {
    Camp.find({}, function (err, allCamps) {
       if (err) {
          console.log(err);
       } else {
-         res.json(allCamps);
+         res.render('camps/index', { camps: allCamps });
       }
    });
 }
 
+exports.newCamp = function (req, res) {
+   res.render('camps/new');
+}
 
-export function addCamp(req, res) {
+exports.addCamp = function (req, res) {
    let { name, price, image, description } = req.body;
 
    let { _id, username } = req.user;
@@ -39,18 +42,22 @@ export function addCamp(req, res) {
    })
 };
 
-export function showCamp(req, res) {
+exports.showCamp = function (req, res) {
    let id = req.params.id;
    Camp.findById(id).populate("comments").exec(function (err, foundCamp) {
       if (err) {
          console.log(err);
       } else {
-         res.render(foundCamp);
+         res.render('camps/show', { fCamp: foundCamp });
       }
    });
 }
 
-export const updateCamp = (req, res) => {
+exports.editCamp = function (req, res) {
+   res.render('camps/edit');
+}
+
+exports.updateCamp = function (req, res) {
    Camp.findByIdAndUpdate(req.params.id, req.body.camp, (err, camp) => {
       console.log(camp);
       if (err) {
@@ -62,7 +69,7 @@ export const updateCamp = (req, res) => {
    });
 }
 
-export const deleteCamp = (req, res) => {
+exports.deleteCamp = function (req, res) {
    Camp.findByIdAndRemove(req.params.id, (err) => {
       if (err) {
          res.render("index");

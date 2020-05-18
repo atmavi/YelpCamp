@@ -1,26 +1,25 @@
 const express = require('express'),
 	router = express.Router(),
-	Camp = require('../models/camp'),
 	middleware = require('../middleware');
 
-const getAllCamps = require('../controller/camps')
-
-// import { getAllCamps, addCamp, updateCamp, deleteCamp } from '../controller/camps';
+const camps_controller = require('../controller/camps')
 
 //INDEX
-router.get("/", getAllCamps);
+router.get("/", camps_controller.getAllCamps);
 
+//NEW
+router.get('/new', camps_controller.newCamp)
 
 //CREATE
-router.post("/", middleware.isLoggedIn, addCamp);
+router.post("/", middleware.isLoggedIn, camps_controller.addCamp);
 
 //SHOW
-router.get("/:id", showCamp);
+router.get("/:id", camps_controller.showCamp);
 
 //UPDATE
-router.put("/:id", updateCamp);
+router.put("/:id", camps_controller.updateCamp);
 
 //DELETE
-router.delete("/:id", middleware.checkCampOwnership, deleteCamp);
+router.delete("/:id", middleware.checkCampOwnership, camps_controller.deleteCamp);
 
 module.exports = router;
