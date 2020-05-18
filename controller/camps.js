@@ -1,6 +1,6 @@
 const Camp = require('../models/camp');
 
-
+//ALL CAMPS
 exports.getAllCamps = function (req, res) {
    Camp.find({}, function (err, allCamps) {
       if (err) {
@@ -11,10 +11,13 @@ exports.getAllCamps = function (req, res) {
    });
 }
 
+//NEW CAMP FORM (GET)
 exports.newCamp = function (req, res) {
    res.render('camps/new');
 }
 
+
+// ADD CAMP (POST)
 exports.addCamp = function (req, res) {
    let { name, price, image, description } = req.body;
 
@@ -42,6 +45,7 @@ exports.addCamp = function (req, res) {
    })
 };
 
+//SHOW CAMP
 exports.showCamp = function (req, res) {
    let id = req.params.id;
    Camp.findById(id).populate("comments").exec(function (err, foundCamp) {
@@ -53,10 +57,13 @@ exports.showCamp = function (req, res) {
    });
 }
 
+//EDIT CAMP FORM (GET)
 exports.editCamp = function (req, res) {
    res.render('camps/edit');
 }
 
+
+//UPDATE CAMP (PUT)
 exports.updateCamp = function (req, res) {
    Camp.findByIdAndUpdate(req.params.id, req.body.camp, (err, camp) => {
       console.log(camp);
@@ -69,6 +76,7 @@ exports.updateCamp = function (req, res) {
    });
 }
 
+//DELETE CAMP (DELETE)
 exports.deleteCamp = function (req, res) {
    Camp.findByIdAndRemove(req.params.id, (err) => {
       if (err) {
