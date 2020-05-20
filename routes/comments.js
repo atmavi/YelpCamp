@@ -1,7 +1,7 @@
-var express = require('express'),
+const express = require('express'),
 	router = express.Router({ mergeParams: true });//shoud have been >>> ' router	= express.Router({mergeParams:true});' but it works for me haha
 
-var Comment = require('../models/comment'),
+const Comment = require('../models/comment'),
 	// Camp		= require('../models/camp'),
 	middleware = require('../middleware');
 
