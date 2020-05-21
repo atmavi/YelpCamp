@@ -1,4 +1,5 @@
 const Comment = require('../models/comment');
+const Camp = require('../models/camp');
 
 //NEW COMMENT 
 exports.new = (req, res) => {

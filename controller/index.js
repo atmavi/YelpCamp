@@ -29,3 +29,10 @@ exports.loginForm = (req, res) => {
 
 //LOGIN 
 exports.login = (req, res) => { }
+
+//LOGOUT
+exports.logout = (req, res) => {
+   req.logout();
+   req.flash("success", "You have been logged out.");
+   res.redirect('/index');
+}
