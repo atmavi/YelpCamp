@@ -5,12 +5,45 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;700&family=Roboto:wght@100;300;700&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="/stylesheets/main.css" />
   <link rel="stylesheet" href="/stylesheets/login-register.css" />
 </head>
 
 <body>
-  <nav class="nav-main navbar navbar-expand-lg navbar-light bg-light">
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">
+      <i class="fas fa-campground mr-2"></i>Yelp Camp
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav w-100 d-flex justify-content-end text-center">
+        <% if(!currentUser){ %>
+        <li class="ml-md-3 mb-sm-2"><a href="/login" class="text-dark">Login</a></li>
+        <li class="ml-md-3 mb-sm-2">
+          <a href="/register" class="text-dark">Sign Up</a>
+        </li>
+        <%} else {%>
+        <li class="ml-md-3 mb-sm-2">
+          <a href="#" class="text-dark"><span class="text-capitalize"><%=currentUser.username%></span></a>
+        </li>
+        <li class="ml-md-3 mb-sm-2">
+          <a href="/logout" class="text-dark">Logout</a>
+        </li>
+        <%}%>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- <nav class="nav-main navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <div class="row justify-content-between w-100">
         <div class="navbar-header col-3">
@@ -19,18 +52,18 @@
         <div class="collapse navbar-collapse col-4">
           <ul class="nav navbar navbar-right d-flex justify-content-end w-100">
             <% if(!currentUser){ %>
-            <li class="mx-3"><a href="/login" class="text-dark">Login</a></li>
-            <li class="mx-3">
-              <a href="/register" class="text-dark">Sign Up</a>
-            </li>
-            <%} else {%>
-            <li class="mx-3">
-              <a href="#" class="text-dark">Signed In as <%=currentUser.username%></a>
-            </li>
-            <li class="mx-3">
-              <a href="/logout" class="text-dark">Logout</a>
-            </li>
-            <%}%>
+        <li class="mx-3"><a href="/login" class="text-dark">Login</a></li>
+        <li class="mx-3">
+          <a href="/register" class="text-dark">Sign Up</a>
+        </li>
+        <%} else {%>
+        <li class="mx-3">
+          <a href="#" class="text-dark">Signed In as <%=currentUser.username%></a>
+        </li>
+        <li class="mx-3">
+          <a href="/logout" class="text-dark">Logout</a>
+        </li>
+        <%}%>
             </ul>
           </div>
         </div>
@@ -38,13 +71,13 @@
     </nav>
     <div class="container">
       <% if(error && error.length>0){ %>
-            <div class="alert alert-danger">
-              <%= error %>
-            </div>
-            <% } %>
-            <% if(success && success.length>0){ %>
-            <div class="alert alert-success">
-              <%= success %>
-            </div>
-            <% } %>
+        <div class="alert alert-danger">
+          <%= error %>
         </div>
+        <% } %>
+        <% if(success && success.length>0){ %>
+        <div class="alert alert-success">
+          <%= success %>
+        </div>
+        <% } %>
+    </div> -->
