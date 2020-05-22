@@ -1,25 +1,7 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: rgb(246, 252, 246);
-}
+@import './variables';  
+@import './base';
+@import './typography';
 
 .nav-main {
-  background-color: rgb(106, 241, 158) !important  ;
+  background-color: $color-primary;
 }
-
-// .thumbmail {
-//   width: 100%;
-// }
-
-// .addNewComment {
-//   margin-right: 1.5%;
-// }
-
-// .fDelete {
-//   display: inline;
-// }
